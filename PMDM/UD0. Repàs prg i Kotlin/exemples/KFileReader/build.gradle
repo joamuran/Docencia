@@ -1,0 +1,25 @@
+plugins {
+    // Plugins de Kotlin
+    id 'org.jetbrains.kotlin.jvm' version '1.3.72'
+
+    // Tipus de projecte: Aplicació CLI
+    id 'application'
+}
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    // Dependències de Kotlin
+    implementation platform('org.jetbrains.kotlin:kotlin-bom')
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8'
+    testImplementation 'org.jetbrains.kotlin:kotlin-test'
+    testImplementation 'org.jetbrains.kotlin:kotlin-test-junit'
+}
+
+application {
+    // La classe principal serà la que classe
+    // que hem creat en Java
+    mainClassName = 'com.ieseljust.dam.FileReader'
+}
