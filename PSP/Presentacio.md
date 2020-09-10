@@ -66,7 +66,7 @@ Els continguts del mòdul s’organitzen en les següents unitats didàctiques:
     * A més, dins l’aula virtual, disposarem d’un fòrum general per comentar aspectes globals del mòdul, i un fòrum per cada unitat didàctica, per tal de resoldre dubtes i tractar aspectes relacionats amb la unitat.
 
 * **Programari**: El programari a utilitzar serà principalment lliure, i se us donaran instruccions en cada unitat per a la seua descàrrega i instal·lació. A grans trets, el programari a utilitzar serà:
-    * Ubuntu 20.04/JustiX, com a sistema operatiu de base. Per tal de facilitar-vos el treball, als ordinadors del centre disposeu de la capa de programari JustiX, de la qual teniu informació a https://ieseljust.github.io/Focal/ per si voleu instal·lar-la als vostres ordinadors.
+    * Ubuntu 20.04/JustiX, com a sistema operatiu de base. Per tal de facilitar-vos el treball, als ordinadors del centre disposeu de la capa de programari JustiX, de la qual teniu informació a https://ieseljust.github.io/justix-focal/ per si voleu instal·lar-la als vostres ordinadors.
     * Visual Studio Code com a editor de codi, que suporta diferents llenguatges, i és bastant ampliable amb extensions. Tot i que serà l’editor de referència, podeu fer ús de NetBeans, Eclipse, o qualsevol altre editor/IDE amb què treballeu còmodament.
     * OpenJDK 11, com entorn de desenvolupament Java, 
     * node.js, com a framework per a la implementació de serveis.
