@@ -50,7 +50,7 @@ Segons aquests objectius, i tenint en compte les tendències actuals de mercat,
     * A més, dins l’aula virtual, disposarem d’un fòrum general per comentar aspectes globals del mòdul, i un fòrum per cada unitat didàctica, per tal de resoldre dubtes i tractar aspectes relacionats amb la unitat.
 
 * **Programari**: El programari a utilitzar serà principalment lliure, i se us donaran instruccions en cada unitat per a la seua descàrrega i instal·lació. A grans trets, el programari a utilitzar serà:
-    * Ubuntu 20.04/JustiX, com a sistema operatiu de base. Per tal de facilitar-vos el treball, als ordinadors del centre disposeu de la capa de programari JustiX, de la qual teniu informació a https://ieseljust.github.io/Focal/ per si voleu instal·lar-la als vostres ordinadors.
+    * Ubuntu 20.04/JustiX, com a sistema operatiu de base. Per tal de facilitar-vos el treball, als ordinadors del centre disposeu de la capa de programari JustiX, de la qual teniu informació a [https://ieseljust.github.io/justix-focal/](https://ieseljust.github.io/justix-focal/) per si voleu instal·lar-la als vostres ordinadors.
     * Visual Studio Code com a editor de codi, que suporta diferents llenguatges, i és bastant ampliable amb extensions. 
     * Android Studio, com a IDE per al desenvolupament en Android
     * El programari més específic, com llibreries i frameworks s’anirà indicant al llarg de les diferents unitats  didàctiques.
