@@ -20,7 +20,7 @@ La programació concurrent és aquella en la que els programes poden tindre dive
 
 La programació concurrent pot ser paral·lela i distribuïda:
 
-* La **programació paral·lela** consisteix en la creació de programes que s'executen en un sol ordinador, tinga o no diversos nuclis (si només té un nucli, reparteix el emos de procés entre diverses tasques)
+* La **programació paral·lela** consisteix en la creació de programes que s'executen en un sol ordinador, tinga o no diversos nuclis (si només té un nucli, reparteix el tmos de procés entre diverses tasques)
 * La **programació distribuïda** consisteix en la creació de programari que s'executa en diferents ordinadors, i que es comuniquen a través d'una xarxa. 
 
 
@@ -36,7 +36,7 @@ pb = new ProcessBuilder(ruta_al_programa_a_executar);
 pb.start();
 ```
 
-#### Exemple 1
+***Exemple 1***
 
 Veiem un exemple complet que llança per exemple el Firefox. El següent fitxer s'anomena **launcher.java**:
 
@@ -69,10 +69,10 @@ firefox launch finished
 
 I veurem com es llança el firefox.
 
-La classe ProcessBuilder és la classe recomanada des de Java 1.5 per a la creació de processos. Aquesta, en realitat, es tracta d'una classe auxiliar de la classe **Process**. Quan creem un nou objecte de la classe ProcessBuilder, com el seu nom indica creem un "Creador de Processos", amb unes característiques concretes (com és l'ordre que es llançarà al procés, i els seus arguments). La instanciació de l'objecte de la classe Process, es produeix quan invoquem al mètode start de Process Builder. D'aquesta manera, si invoquem, per exemple dues vegades el mètode start, crearem dos instàncies de la classe Process (i.e. dos processos diferents.)
+La classe ProcessBuilder és la classe recomanada des de Java 1.5 per a la creació de processos. Aquesta, en realitat, es tracta d'una classe auxiliar de la classe **Process**. Quan creem un nou objecte de la classe ProcessBuilder, com el seu nom indica creem un *Creador de Processos*, amb unes característiques concretes (com és l'ordre que es llançarà al procés, i els seus arguments). La instanciació de l'objecte de la classe Process, es produeix quan invoquem al mètode start de Process Builder. D'aquesta manera, si invoquem, per exemple dues vegades el mètode start, crearem dos instàncies de la classe Process (i.e. dos processos diferents.)
 
 
-#### Exemple 2
+***Exemple 2***
 
 Veiem el mateix exemple, però creant dos processos de Firefox (**fitxer launcher2.java**):
 
@@ -116,21 +116,15 @@ Segona instància de firefox amb PID 7085
 
 ### Alguns mètodes més de ProcessBuilder
 
-La classe ProcessBuilder admet diversos mètodes més, com podem veure a [https://docs.oracle.com/javase/9/docs/api/java/lang/ProcessBuilder.html]. Alguns dels més interessants són `directory()`, per tal d'indicar el directori de treball en què s'executarà l'ordre que li indiquem, `command()`, per especificar l'ordre a executar si no l'hem indicat en la creació, i `environment()`, si volem especificar les variables d'entorn de l'execució.
+La classe ProcessBuilder admet diversos mètodes més, com podem veure a [https://docs.oracle.com/javase/10/docs/api/java/lang/ProcessBuilder.html](https://docs.oracle.com/javase/10/docs/api/java/lang/ProcessBuilder.html). Alguns dels més interessants són `directory()`, per tal d'indicar el directori de treball en què s'executarà l'ordre que li indiquem, `command()`, per especificar l'ordre a executar si no l'hem indicat en la creació, i `environment()`, si volem especificar les variables d'entorn de l'execució.
 
 
 # 3. Les classes Process i Runtime
 
-<div class="MyTip">
-<div class="tipContent">
-<div class="tipHeader">Documentació:</div>
-<ul class="TipList">
-<li><a href="https://docs.oracle.com/javase/9/docs/api/java/lang/Runtime.html">https://docs.oracle.com/javase/9/docs/api/java/lang/Runtime.html</a></li>
-<li><a href="https://docs.oracle.com/javase/9/docs/api/java/lang/Process.html">https://docs.oracle.com/javase/9/docs/api/java/lang/Process.html</a></li>
-</ul>
-</div>
-</div>
-</div>
+> ***Documentació***
+>
+> * [https://docs.oracle.com/javase/10/docs/api/java/lang/Runtime.html](https://docs.oracle.com/javase/10/docs/api/java/lang/Runtime.html)
+> * [https://docs.oracle.com/javase/10/docs/api/java/lang/Process.html](https://docs.oracle.com/javase/10/docs/api/java/lang/Process.html)
 
 ## 3.1. La classe `Runtime`
 
@@ -138,7 +132,7 @@ L'API de Java per a la gestió de processos, a banda de la classe ProcessBuilder
 
 La classe `Runtime` encapsula l'entorn d'execució d'un programa. Es tracta també d'una classe abstracta, i no es pot instanciar. Si volem obtindre l'entorn d'execució d'un programa, podem fer ús del mètode estàtic `Runtime.getRuntime()`. Veiem el seu ús en un exemple:
 
-#### Exemple 3
+***Exemple 3***
 
 ```java
 // package com.eljust.psp;
@@ -146,7 +140,7 @@ La classe `Runtime` encapsula l'entorn d'execució d'un programa. Es tracta tamb
 public class RuntimeDemo {
 
    // r serà una referència a l'entorn d'execució actual
-   protected Runtime r=Runtime.getRuntime();;
+   protected Runtime r=Runtime.getRuntime();
 
 
    protected void mostraInfo(){
@@ -243,7 +237,7 @@ Cal tindre en compte, que a diferència de Bash, els processos creats d'aquesta 
 * `Boolean waitFor(long timeOut, TimeUnit unit)`: Es tracta d'una sobrecàrreca del mètode anterior, en la que podem especificar el temps d'espera. Retornarà cert si el procés segueix en execució després del temps indicat i fals en cas contrari.
 * `void destroy()`, `Process destroyForcibly()`: Forcen la terminació del procés. 
 
-#### Exemple 4
+***Exemple 4***
 
 Veiem una modificació de l'Exemple 1 en què utilitzem algunes d'aquestes funcions:
 
@@ -331,13 +325,13 @@ public class StreamsIODemo {
    public static void main(String[] args) {
 
       System.out.println
-         ("------------- Calendari de l'any 2019 -----------------");
+         ("------------- Calendari de l'any 2020 -----------------");
       try {
 
         // En primer lloc, creem l'objecte ProcessBuilder, 
         // i l'inicialitzem amb l'ordre que anem a utilitzar.
          ProcessBuilder pb = new
-            ProcessBuilder("cal", "2019");
+            ProcessBuilder("cal", "2020");
 
         // Llancem el procés, i recollim l'objecte 
         // Process que ens retorna.
@@ -367,7 +361,7 @@ Gràficament, quedaría així: El procés envía un flux de caràcters que conne
 
 ![InputStreamReader](img/InputStreamReader.png)
 
-#### Sobre la codificació de caràcters
+***Sobre la codificació de caràcters***
 
 Un aspecte a tindre en compte quan treballem amb streams és la codificació de la informació que s'intercanvia entre els processos, i que depèn del sistema operatiu en què estiguem treballant. La majoría de sistemes (GNU/Linux, Mac OS, Android, iOS..) fan ús de la codificació UTF-8, basada en l'estàndard Unicode. Per la seua banda, MS Windows utilitza els seus propis formats, incompatibles amb la resta, com Windows-Western. Així que per tractar les dades correctament en Java quan fem ús de mecanismes de comunicació entre processos més avançats, caldrà tindre en compte el tipus de codificació que el propi sistema utilitza.
 
@@ -392,7 +386,7 @@ public class StreamsIODemo2 {
         // En primer lloc, creem l'objecte ProcessBuilder, 
         // i l'inicialitzem amb l'ordre que anem a utilitzar.
          ProcessBuilder pb = new
-            ProcessBuilder("cal", "2019");
+            ProcessBuilder("cal", "2020");
 
         // Llancem el procés, i recollim l'objecte 
         // Process que ens retorna.
@@ -408,7 +402,7 @@ public class StreamsIODemo2 {
                // BufferedWriter, i de forma molt similar
                // a l'exemple anterior
                BufferedWriter bw=new BufferedWriter(
-                  new FileWriter(new File("calendari2019.txt")));
+                  new FileWriter(new File("calendari2020.txt")));
                   String line;
                   while((line=br.readLine())!=null){
                      bw.write(line+"\n");
@@ -422,7 +416,7 @@ public class StreamsIODemo2 {
 }
 ```
 
-Com podem comprovar, aquest exemple és molt paregut a l'anterior, amb la diferència que en lloc de mostrar la línia que obtenim del BufferedReader per pantalla, l'escrivim a través d'un BufferedWriter a un fitxer anomenat "calendari2019.txt".
+Com podem comprovar, aquest exemple és molt paregut a l'anterior, amb la diferència que en lloc de mostrar la línia que obtenim del BufferedReader per pantalla, l'escrivim a través d'un BufferedWriter a un fitxer anomenat `calendar20.txt`.
 
 
 ## 4.2. Redirecció a fitxers amb ProcessBuilder
@@ -440,10 +434,10 @@ public class StreamsIODemo3 {
 
         // En primer lloc, creem l'objecte ProcessBuilder, 
         // i l'inicialitzem amb l'ordre que anem a utilitzar.
-        ProcessBuilder pb = new ProcessBuilder("cal", "2019");
+        ProcessBuilder pb = new ProcessBuilder("cal", "2020");
 
         // Redirigim l'eixida del procés a un fitxer
-        pb.redirectOutput(new File("calendari2019_v2.txt"));
+        pb.redirectOutput(new File("calendari2020_v2.txt"));
 
         // Llancem el procés
          pb.start();
@@ -465,7 +459,7 @@ Quan volem realitzar una aplicació en la que diferents processos col·laboren e
 2. Distribueix les diferents funcions en processos, i estableix els mecanismes de comunicació entre ells. Cal tindre en compte també, que aquesta comunicació implica certa pèrdua de temps, pel que és convenient que aquesta comunicació siga mínima.
 3. Una vegada hem descomposat i dividit el problema, realitzem la implementació de la solució plantejada.
 
-#### Exemple
+***Exemple***
 Veiem un exemple senzill. Volem calcular la suma de tots els números existents entre dos números concrets. Per exemple, si donem com a paràmetres d'entrada 3 i 7, obtindrem la suma de 3+4+5+6+7. Com veiem, es tracta d'un problema bastant senzill. Per tal de millorar el rendiment, anem a dividir el problema en dues parts iguals; és a dir, si volem fer la suma entre 1 i 100, farem la suma entre 1 i 50 en un procés i entre 51 i 100 en altre, realitzant la suma d'ambdós resultats al final.
 
 Per a això, crearem dos classes en Java:
@@ -602,7 +596,7 @@ $java com.psp.sumatori.Runner 1 100
 ```
 Com veiem, ha dividit el problema en dos parts, i hem obtingut el resultat, però... com afecta el paral·lelisme que hem aplicat a millorar la solució? Realment, obté temps d'espera millors?
 
-Per a això, anem a fer ús de l'ordre de Bash `time`, que ens dóna el temps que tarda en realitzar-se un programa. Com que la classe `Suma` també es pot llençar des de l'intèrpret d'ordres, mesurarem què tarda cada classe per al mateix rang de valors.
+Per a això, anem a fer ús de l'ordre de Bash `time`, que ens dóna el temps que tarda en realitzar-se un procés. Com que la classe `Suma` també es pot llençar des de l'intèrpret d'ordres, mesurarem què tarda cada classe per al mateix rang de valors.
 
 Veiem què tarda en fer la suma del rang 1..100 la classe `Suma`:
 
@@ -704,7 +698,7 @@ S'han finalitzat els dos processos. Calculant.
 -5946744071209551616+606511855080896768=-5340232216128654848
 ```
 
-Independentment de l'error del resultat, ja que hem desbordar la capacitat dels enters llargs amb la suma, si ens fixem, el procés ha fet dues aturades, concretament, cadascuna d'elles entre els missatges "*Hem creat el búffer de lectura. Esperant que s'ompliga*" i "*Buffer preparat*". Què ens indica açò? Doncs que l'ordre `while((line=br.readLine())!=null)` que està a l'espera que s'òmpliga el búffer és una ordre **bloquejant**. Això significa que tot i que hajam dividit el problema en dos processos, fins que no es llegeix el búffer d'eixida d'un, no es llança el següent procés. Es tractaría doncs d'un mal disseny, ja que realment, no llancem els processos en paral·lel, sinò que llancem el segon quan el primer ha acabat, ja que ens estem esperant a la resposta del segon.
+Independentment de l'error del resultat, ja que hem desbordar la capacitat dels enters llargs amb la suma, si ens fixem, el procés ha fet dues aturades, concretament, cadascuna d'elles entre els missatges `Hem creat el búffer de lectura. Esperant que s'ompliga`i `Buffer preparat`. Què ens indica açò? Doncs que l'ordre `while((line=br.readLine())!=null)` que està a l'espera que s'òmpliga el búffer és una ordre **bloquejant**. Això significa que tot i que hajam dividit el problema en dos processos, fins que no es llegeix el búffer d'eixida d'un, no es llança el següent procés. Es tractaría doncs d'un mal disseny, ja que realment, no llancem els processos en paral·lel, sinò que llancem el segon quan el primer ha acabat, ja que ens estem esperant a la resposta del segon.
 
 Una possible solució a açò és la que es mostra en la classe Runner2, i que consisteix a llançar el procés, i en lloc d'esperar que el búffer estiga preparat, es retorna el BufferedReader corresponent al procés, de manera que es puga llençar el segon de forma simultània, i després llegir ja, un rere l'altre els resultats dels búffers.
 

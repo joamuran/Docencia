@@ -101,8 +101,9 @@ top -hv|-bcHiOSs -d secs -n max -u|U user -p pid -o fld -w [cols]
 ```
 
 Algunes opcions d’interès:
-*  **secs**: Interval entre actualitzacions (es canvia amb l’ordre interactiva s)
-*  **n max**: Indica el nombre d’iteracions/refrescos abans de finalitzar. Si no s’indica, es repeteix contínuament.
+
+* **secs**: Interval entre actualitzacions (es canvia amb l’ordre interactiva s)
+* **n max**: Indica el nombre d’iteracions/refrescos abans de finalitzar. Si no s’indica, es repeteix contínuament.
 * *c**: Mostra tota la línia d’ordres que ha llançat cada procés. 
 * **b**: Batch mode, en lloc del mode interactiu. Va mostrant per pantalla els resultats, sense possibilitat d’interacció. Pot usar-se en combinació amb l’opció n, per tal de limitar el nombre d’iteracions (si no, hauriem de finalitzar el procés manualment).
 * **H**: Mostra informació relativa també als processos lleugers (threads).
@@ -398,24 +399,24 @@ Fixem-nos que el nom del servei acaba amb `.service`. Systemd, a banda de servei
 
 Veiem-ne un exemple:
 
-```shell
+```
 $ systemctl status apache2.service 
 ● apache2.service - The Apache HTTP Server
    Loaded: loaded (/lib/systemd/system/apache2.service; enabled; vendor preset: enabled)
   Drop-In: /lib/systemd/system/apache2.service.d
-           └─apache2-systemd.conf
+           `-apache2-systemd.conf
    Active: active (running) since Mon 2018-09-10 21:39:12 CEST; 3h 17min ago
   Process: 7727 ExecReload=/usr/sbin/apachectl graceful (code=exited, status=0/SUCCESS)
   Process: 1201 ExecStart=/usr/sbin/apachectl start (code=exited, status=0/SUCCESS)
  Main PID: 1274 (apache2)
     Tasks: 6 (limit: 4915)
    CGroup: /system.slice/apache2.service
-           ├─1274 /usr/sbin/apache2 -k start
-           ├─7738 /usr/sbin/apache2 -k start
-           ├─7739 /usr/sbin/apache2 -k start
-           ├─7740 /usr/sbin/apache2 -k start
-           ├─7741 /usr/sbin/apache2 -k start
-           └─7742 /usr/sbin/apache2 -k start
+           |-11274 /usr/sbin/apache2 -k start
+           |-7738 /usr/sbin/apache2 -k start
+           |-7739 /usr/sbin/apache2 -k start
+           |-7740 /usr/sbin/apache2 -k start
+           |-7741 /usr/sbin/apache2 -k start
+           `-7742 /usr/sbin/apache2 -k start
 ```
 
 Com veiem, ens dóna una descripció del servei, i informació diversa sobre la seua configuració i els processos relacionats. Com veiem, el servei té 6 processos (Tasks) associats, cadascun amb un PID diferent, però tots associats al mateix CGroup. Els CGroups (contorl groups) és una caracterísica del kernel de linux que limita els recursos d'un conjunt de processos, per temes se seguretat. 
@@ -437,7 +438,7 @@ Una de les formes més senzilles que ofereix el sistema operatiu per comunicar p
 
 ### Redireccions
 
-Com sabem, cada procés té associats tres fitxers per possibilitar la seua cominicació:
+Com sabem, cada procés té associats tres fitxers per possibilitar la seua comunicació:
 
 * **stdin**, amb descriptor de fitxer 0, que representa per on rep dades el procés (generalment associat a l'entrada de teclat de la terminal)
 * **stdout**, amb descriptor de fitxer 1, que representa on bolca la seua eixida el procés (generalment associat a la pantalla de la terminal)
@@ -527,8 +528,7 @@ $ (sleep 3; echo "fi") &
 
 Les canonades (pipes) permeten connectar l'eixida estàndard d'un procés amb l'entrada estàndard d'altre, establint així una relació de productor-consumidor.
 
-* Ús:
-** productor | consumidor
+* Ús: `productor | consumidor`
 
 Veiem un exemple. Suposem que tenim un usuari (anomenat *usuari*) connectat per ssh a la nostra màquina, podem enviar-li un missatge amb write. Amb la següent ordre, el que farem serà enviar-li en resultat de l'execució de l'ordre "banner Hola!":
 
